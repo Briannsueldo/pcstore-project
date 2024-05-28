@@ -1,3 +1,7 @@
-const colorToFind = ['#fbfbfb', '#212121'];
+const hamburger = document.querySelector(".hamburger-icon");
+const mainMenu = document.querySelector(".main-menu");
 
-const button = document.getElementById('button')
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    mainMenu.classList.toggle("active");
+})

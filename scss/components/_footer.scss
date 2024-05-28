@@ -22,7 +22,6 @@
         position: relative;
         justify-content: center;
         align-items: center;
-        width: 100%;
         gap: 5rem;
 
         div:nth-child(1) {
@@ -57,7 +56,6 @@
     .f-section-2 {
         height: auto;
         position: relative;
-        width: 40%;
         display: flex;
         flex: 1;
         justify-content: center;
@@ -93,7 +91,7 @@
     .f-section-3 {
         display: flex;
         position: relative;
-        width: 40%;
+        width: 768px;
         justify-content: space-between;
         border-top: 1px solid #fbfbfb;
         padding-top: 2rem;
