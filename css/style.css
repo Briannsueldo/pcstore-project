@@ -307,6 +307,10 @@ body {
   color: #fbfbfb;
   text-decoration: none;
   font-weight: 400;
+  transition: 0.2s ease-in-out;
+}
+.footer .f-section-2 .footer-links a:hover {
+  color: #55c1ff;
 }
 .footer .f-section-3 {
   display: flex;
@@ -731,6 +735,126 @@ body {
 .professionals .teams-slider-points .teams-container .team img:hover {
   transform: scale(1.1);
   mask-image: linear-gradient(#fbfbfb 10%, transparent);
+}
+
+.consult-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.consult-section .form-container {
+  width: 400px;
+  border: 1px solid #212121;
+  border-radius: 0.7rem;
+  padding: 2rem;
+}
+.consult-section .form-container .consult-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  padding-top: 0;
+}
+.consult-section .form-container form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 2rem;
+}
+.consult-section .form-container form .form-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.consult-section .form-container form .form-input-container label {
+  font-weight: 500;
+}
+.consult-section .form-container form .form-input-container input {
+  padding: 0.6rem 0.375rem;
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  border-radius: 0.375rem;
+}
+.consult-section .form-container form .form-input-container select {
+  padding: 0.6rem 0.375rem;
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  border-radius: 0.375rem;
+}
+.consult-section .form-container form .form-input-container select option {
+  padding: 0.6rem 0.375rem;
+}
+.consult-section .form-container form .form-input-container textarea {
+  padding: 0.375rem;
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  border-radius: 0.375rem;
+  resize: none;
+  outline: none;
+  height: 8rem;
+}
+.consult-section .form-container form .form-input-container input, .consult-section .form-container form .form-input-container select, .consult-section .form-container form .form-input-container textarea {
+  transition: 0.1s ease-in-out;
+  font-weight: 500;
+}
+.consult-section .form-container form .form-input-container input:focus, .consult-section .form-container form .form-input-container select:focus, .consult-section .form-container form .form-input-container textarea:focus {
+  outline: 4px solid rgba(56, 182, 255, 0.3568627451);
+}
+.consult-section .form-container form .form-input-container button {
+  padding: 0.6rem 0.375rem;
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  border-radius: 0.375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.consult-section .form-container form .form-input-container button:hover {
+  border: 1px solid #38B6FF;
+  color: #fbfbfb;
+  background-color: #38B6FF;
+}
+.consult-section .form-container form .form-input-container .select-option {
+  transition: 0.3s ease-in-out;
+}
+.consult-section .form-container form .form-input-container .select-option .problem-container {
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  padding: 0.6rem 0.375rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: rgba(33, 33, 33, 0.6078431373);
+  margin-top: 0.3rem;
+}
+.consult-section .form-container form .form-input-container .select-option .problem-options-container {
+  flex-direction: column;
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  border-radius: 0.375rem;
+  padding: 0.3rem;
+  display: flex;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+}
+.consult-section .form-container form .form-input-container .select-option .problem-options-container span {
+  width: 100%;
+  padding: 0.6rem 0.075rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+.consult-section .form-container form .form-input-container .select-option .problem-options-container span:hover {
+  background-color: rgba(56, 182, 255, 0.3568627451);
+  border-radius: 0.375rem;
+}
+.consult-section .form-container form .form-input-container .select-option.active .problem-options-container {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  border: 1px solid rgba(33, 33, 33, 0.6078431373);
+  border-radius: 0.375rem;
+  padding: 0.3rem;
+  position: absolute;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
