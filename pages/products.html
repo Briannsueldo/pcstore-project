@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="nav-bar">
@@ -16,10 +17,10 @@
         <div class="nav-section menu">
             <ul class="main-menu">
                 <li>
-                    <a href="../index.html">Home</a>
+                    <a href="">Home</a>
                 </li>
                 <li class="dropdown-detected">
-                    <a href="../pages/consultUpdate.html">Services</a>
+                    <a href="./pages/consultUpdate.html">Services</a>
                     <ul class="dropdown-menu first-dd-menu">
                         <li>
                             Consultation
@@ -33,7 +34,7 @@
                     </ul>
                 </li>
                 <li class="dropdown-detected">
-                    <a href="../pages/products.html">Products</a>
+                    <a href="">Products</a>
                     <ul class="dropdown-menu">
                         <li>
                             GPU
@@ -74,44 +75,26 @@
         </div>
     </nav>
 
-    <section class="consult-section">
-        <div class="form-container">
-            <div class="consult-container">
-                <h2>TICKET SUPPORT</h2>
+    <section class="main-product-container">
+        <div class="product-select-container">
+            <div class="prompt-select-container">
+                <input type="search" id="search-input">
+                <button id="searchButton">Search</button>
             </div>
-            <form action="">
-                <div class="form-input-container">
-                    <label for="">Name</label>
-                    <input type="text" required>
-                </div>
-                <div class="form-input-container">
-                    <label for="">Emial Adress</label>
-                    <input type="email" name="" id="" required>
-                </div>
-                <div  class="form-input-container">
-                    <div class="select-option">
-                        <label for="">Select your problem</label>
-                        <div class="problem-container">
-                            <span>Problem</span>
-                        </div>
-                        <div class="problem-options-container">
-                            <span class="problem-option">Pricing</span>
-                            <span class="problem-option">Stock</span>
-                            <span class="problem-option">Report a problem</span>
-                        </div>
-                    </div>
-                </div>
-                <div  class="form-input-container">
-                    <label for="">Tell us your problem</label>
-                    <textarea name="" id="" required></textarea>
-                </div>
-                <div  class="form-input-container">
-                    <button type="submit">Send ticket</button>
-                </div>
-            </form>
+            <div class="category-products" id="buttons-filters-container">
+                <button class="button-filters">All</button>
+                <button class="button-filters">Graphic Card</button>
+                <button class="button-filters">Processor</button>
+                <button class="button-filters">Ram memory</button>
+                <button class="button-filters">Motherboard</button>
+                <button class="button-filters">Power supply</button>
+            </div>
+        </div>
+        <div class="products-container" id="productsContainer">
+
         </div>
     </section>
-
+    
     <footer class="footer">
         <div class="footer-section f-section-1">
             <div>
@@ -188,5 +171,6 @@
     </footer>
 
     <script src="../js.js"></script>
+    <script src="../items.js"></script>
 </body>
 </html>
