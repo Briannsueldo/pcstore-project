@@ -82,12 +82,12 @@
                 <button id="searchButton">Search</button>
             </div>
             <div class="category-products" id="buttons-filters-container">
-                <button class="button-filters">All</button>
-                <button class="button-filters">Graphic Card</button>
-                <button class="button-filters">Processor</button>
-                <button class="button-filters">Ram memory</button>
-                <button class="button-filters">Motherboard</button>
-                <button class="button-filters">Power supply</button>
+                <button class="button-filters" onclick="filterProduct('all')">All</button>
+                <button class="button-filters" onclick="filterProduct('graphicCard')">Graphic Card</button>
+                <button class="button-filters" onclick="filterProduct('processor')">Processor</button>
+                <button class="button-filters" onclick="filterProduct('ram')">Ram memory</button>
+                <button class="button-filters" onclick="filterProduct('motherboard')">Motherboard</button>
+                <button class="button-filters" onclick="filterProduct('power')">Power supply</button>
             </div>
         </div>
         <div class="products-container" id="productsContainer">

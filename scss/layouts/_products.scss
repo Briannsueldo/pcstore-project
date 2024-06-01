@@ -4,17 +4,19 @@
     position: relative;
     left: 5%;
     width: 90%;
-    background-color: #212121;
 
     .product-select-container {
         display: flex;
         flex-direction: column;
-        width: 25%;
+        height: 50vh;
+        padding-right: 1rem;
 
         .prompt-select-container {
-            height: 10%;
+            height: 25%;
             display: flex;
-            justify-content: space-around;
+            gap: 1rem;
+            flex-direction: column;
+            border-bottom: 1px solid;
 
             input {
                 border: 1px solid #212121;
@@ -44,6 +46,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            padding-block: 1.5rem;
 
             .button-filters {
                 padding: 0.3rem;
@@ -61,22 +64,24 @@
     }
 
     .products-container {
-        width: 75%;
-        background-color: #212121;
+        width: 100%;
         overflow: hidden;
         display: flex;
         flex-wrap: wrap;
         position: relative;
-        gap: 3rem;
+        gap: 1.5rem;
+        padding-inline: 1rem;
+        background: transparent;
 
         .productCard {
             display: flex;
             flex-direction: column;
             position: relative;
-            background-color: red;
             overflow: hidden;
             height: 500px;
             width: 300px;
+            border: 1px solid #21212188;
+            border-radius: .5rem;
 
             .image-container {
                 width: 100%;
@@ -95,13 +100,28 @@
                 flex-direction: column;
                 height: 50%;
 
-                h3 {
-                    text-align: center;
+                h2 {
+                    font-size: 1.2rem;
                 }
 
                 span {
                     font-size: 1.4rem;
                     font-weight: 800;
+                }
+
+                .review-container {
+
+                    display: flex;
+                    width: 100%;
+                    padding-inline: 0.5rem;
+                    gap: .5rem;
+                    align-items: center;
+
+                    span {
+                        color: #21212188;
+                        font-size: 1rem;
+                        font-weight: 400;
+                    }
                 }
 
                 .buttons-container {
@@ -122,6 +142,12 @@
                         font-weight: 600;
                         font-size: 1.1rem;
                         cursor: pointer;
+                        transition: 0.2s ease-in-out;
+
+                        &:hover {
+                            background-color: #2b6a3d;
+                            border: 1px solid #2b6a3d;
+                        }
                     }
 
                     .wish-button {
@@ -133,11 +159,43 @@
                         font-weight: 600;
                         font-size: 1.1rem;
                         cursor: pointer;
+                        transition: 0.2s ease-in-out;
+
+                        &:hover {
+                            background-color: #2563EB;
+                            border: 1px solid #2563EB;
+                            color: #fbfbfb;
+                        }
                     }
                 }
             }
+        }
 
+        .hide {
+            display: none;
+            animation: fadeOut 0.5s forwards
+        }
 
+        .show {
+            animation: fadeIn 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
         }
     }
 }
