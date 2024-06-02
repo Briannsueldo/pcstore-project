@@ -228,7 +228,7 @@ for (let i of products.data) {
     let wishButton = document.createElement("button");
     wishButton.classList.add("wish-button");
     buttonsContainer.appendChild(wishButton);
-    let wishButtonText = document.createTextNode("Wishlist");
+    let wishButtonText = document.createTextNode("Add to cart");
     wishButton.appendChild(wishButtonText);
 
 
