@@ -1,9 +1,10 @@
 
 // Products create DOM and filters
 
-let products = {
+/* let products = {
     data: [
         {
+            id: 1,
             productName: "RTX 4070 TI",
             category: "graphicCard",
             price: "780 USD",
@@ -13,6 +14,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 2,
             productName: "LOGITECH G PRO",
             category: "mouse",
             price: "53 USD",
@@ -22,6 +24,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 3,
             productName: "RX 7900 GRE",
             category: "graphicCard",
             price: "590 USD",
@@ -31,6 +34,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 4,
             productName: "LOGITECH G355",
             category: "headset",
             price: "57 USD",
@@ -40,6 +44,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 5,
             productName: "RYZEN 5 5600",
             category: "processor",
             price: "133 USD",
@@ -49,6 +54,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 6,
             productName: "GT 1030",
             category: "graphicCard",
             price: "64 USD",
@@ -58,6 +64,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 7,
             productName: "Gigabyte B450 V2",
             category: "motherboard",
             price: "117 USD",
@@ -67,6 +74,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 8,
             productName: "MSI B760 PLUS",
             category: "motherboard",
             price: "163 USD",
@@ -76,6 +84,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 9,
             productName: "Intel I5-21400F",
             category: "processor",
             price: "133 USD",
@@ -85,6 +94,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 10,
             productName: "Intel I7-13700K",
             category: "processor",
             price: "389 USD",
@@ -94,6 +104,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 11,
             productName: "Kingston FURY 3200MHz 2x8",
             category: "ram",
             price: "54 USD",
@@ -103,6 +114,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 12,
             productName: "Corsair 2300MHz 2x8",
             category: "ram",
             price: "45 USD",
@@ -112,6 +124,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 13,
             productName: "Razer Viper V3",
             category: "mouse",
             price: "110 USD",
@@ -121,6 +134,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 14,
             productName: "HyperX Cloud Orbit S",
             category: "headset",
             price: "362 USD",
@@ -130,6 +144,7 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
         {
+            id: 15,
             productName: "Thermaltake 600W 80 Plus",
             category: "power",
             price: "102 USD",
@@ -139,7 +154,45 @@ let products = {
             svgLink: "../img/svg-stars.svg",
         },
     ]
+} */
+
+/* function getProductById(id) {
+    return products.find(product => product.id === id);
 }
+
+export { getProductById, products }; */
+
+import { products } from "./listitems.js";
+
+let selectedProduct = null;
+
+// Function
+
+/* function clickButtonInfo(productId) {
+    selectedProduct = products.data.find(p => p.id === productId);
+
+    if (selectedProduct) {
+        console.log(`Product name: ${selectedProduct.productName}`);
+        console.log(`Product category: ${selectedProduct.category}`);
+        console.log(`Product price: ${selectedProduct.price}`);
+    }   else {
+        console.log(`Product not found`);
+        return null;
+    }
+} */
+
+function clickButtonInfo(productId) {
+    selectedProduct = products.data.find(p => p.id === productId);
+
+    if (selectedProduct) {
+        localStorage.setItem("selectedProduct", JSON.stringify(selectedProduct));
+        return selectedProduct;
+    } else {
+        console.log('Product not found');
+        return null;
+    }
+}
+
 
 for (let i of products.data) {
     
@@ -221,9 +274,18 @@ for (let i of products.data) {
 
     let buyButton = document.createElement("button");
     buyButton.classList.add("buy-button");
+    buyButton.setAttribute("data-id", i.id);
     buttonsContainer.appendChild(buyButton);
-    let buyButtonText = document.createTextNode("Buy");
+    let buyButtonText = document.createTextNode("Buy now");
     buyButton.appendChild(buyButtonText);
+
+    buyButton.addEventListener("click", function() {
+        const productId = parseInt(this.getAttribute("data-id"), 10);
+        clickButtonInfo(productId);
+
+        window.location.href = "buysection.html";
+    })
+
 
     let wishButton = document.createElement("button");
     wishButton.classList.add("wish-button");
@@ -286,6 +348,8 @@ document.getElementById("searchButton").addEventListener("click", () => {
         }
     });
 });
+
+// Buy section
 
 
 window.onload = () => {
