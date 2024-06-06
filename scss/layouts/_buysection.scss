@@ -5,17 +5,20 @@
     height: 80vh;
     width: 65rem;
     background-color: #212121;
+    box-shadow: 0px 0px 10px 0px;
+    border-radius: 0.375rem;
 
     .image-container {
         height: 100%;
         width: 50%;
-        background-color: #2121212b;
+        border-radius: 0.375rem 0 0 0.375rem;
         display: flex;
         flex-direction: column;
 
         .image {
             height: 75%;
             display: flex;
+            border-radius: 0.375rem;
 
             img {
                 object-fit: contain;
@@ -26,7 +29,25 @@
 
         .image-carrousel {
             height: 25%;
-            background-color: #fbfbfb5b;
+            border-radius: 0 0 0 0.375rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            border-top: 1px solid #2121212b;
+
+            img {
+                width: 7rem;
+                border: 2px solid #2121212b;
+                border-radius: .75rem;
+                filter: brightness(0.9);
+                transition: 0.2s;
+
+                &:hover {
+                    filter: brightness(1);
+                }
+            }
         }
     }
 
@@ -35,13 +56,21 @@
         width: 50%;
         display: flex;
         flex-direction: column;
+        border-left: 1px solid #2121212b;
+        border-radius: 0 0.375rem 0.375rem 0;
 
         .info-container {
             height: 75%;
             padding: 0.5rem;
+            border-radius: 0.375rem;
 
             .title-container {
                 height: 25%;
+                gap: 0.5rem;
+                padding-block: 1rem;
+                display: flex;
+                flex-direction: column;
+
 
                 span {
                     border-radius: 0.375rem;
@@ -50,6 +79,7 @@
                     background-color: #21212188;
                     font-size: 0.8rem;
                     cursor: pointer;
+                    width: fit-content;
                 }
 
                 h2 {
@@ -73,6 +103,7 @@
 
                 .promoPrice {
                     font-weight: 800;
+                    color: #3f9a59;
                 }
             }
 
@@ -151,8 +182,8 @@
                         }
 
                         &:nth-child(2) {
-                            border: 1px solid #2563EB;
-                            background-color: #2563EB;
+                            border: 1px solid #3483FA;
+                            background-color: #3483FA;
                             /* background-color: #38B6FF; */
                             color: #fbfbfb;
                             font-weight: 600;
@@ -162,9 +193,33 @@
             }
         }
 
-        .pay-section {
+        .methods-container {
             height: 25%;
-            background-color: #212121;
+            width: 100%;
+            display: flex;
+
+            .icon-information-container {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 0.5rem;
+                gap: 1.5rem;
+                border-radius: 0 0 0.375rem 0;
+                border-top: 1px solid #2121212b;
+                width: 50%;
+
+                .icon-information {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    
+                    span {
+                        font-size: 1.1rem;
+                        font-weight: 400;
+                    }
+                }
+            }
         }
     }
 }

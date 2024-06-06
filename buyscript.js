@@ -20,6 +20,8 @@ if (selectedProduct) {
     const discountPrice = (originalPrice * 0.80).toFixed(2);
     // original price
     const priceElement = document.querySelector('.price-container .price');
+    // container for images array, and images array deploy
+    const carrouselElement = document.querySelector('.image-carrousel');
 
     imageElement.src = selectedProduct.image;
 
@@ -31,31 +33,31 @@ if (selectedProduct) {
 
     promoElement.textContent = `$${discountPrice} USD`;
 
-}
+    // confirms if images is an array and then for every image inside of array create an img
 
-/* document.addEventListener("DOMContentLoaded", function() {
+    if (selectedProduct.images && Array.isArray(selectedProduct.images)) {
 
-    const totalNumber = document.getElementById("quantity-number");
+        selectedProduct.images.forEach(imageSrc => {
+            const imgCarrousel = document.createElement('img');
+            imgCarrousel.src = imageSrc;
+            carrouselElement.appendChild(imgCarrousel);
 
-    if (totalNumber) {
-        const addButton = document.getElementById("add-number");
-        
+            imgCarrousel.addEventListener("click", function () {
+                console.log("imagen clickeada", imageSrc);
 
-        addButton.addEventListener("click", function () {
-            
-            let currentValue = parseInt(totalNumber.textContent, 10);
-            totalNumber.textContent = currentValue + 1;
-        });
-    } else {
-        const substractButton = document.getElementById("substract-number");
+                const allImages = document.querySelectorAll('img');
 
-        substractButton.addEventListener("click", function () {
+                allImages.forEach(img => img.classList.remove("active"));
 
-            let currentValue = parseInt(totalNumber.textContent, 10);
-            totalNumber.textContent = currentValue - 1;
+                imgCarrousel.classList.add("active");
+
+                imageElement.src = imgCarrousel.src;
+            });
         });
     }
-}) */
+}
+
+// Quantity box
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -78,18 +80,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-/* document.addEventListener("DOMContentLoaded", function() {
-    const totalNumber = document.getElementById("quantity-number");
-    const addButton = document.getElementById("add-number");
-    const substractButton = document.getElementById("substract-number");
-
-    addButton.addEventListener("click", function () {
-        let currentValue = parseInt(totalNumber.value, 10) || 0;
-        totalNumber.value = currentValue + 1;
-    });
-
-    substractButton.addEventListener("click", function () {
-        let currentValue = parseInt(totalNumber.value, 10) || 0;
-        totalNumber.value = Math.max(0, currentValue - 1);
-    });
-}); */

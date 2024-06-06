@@ -156,30 +156,11 @@
     ]
 } */
 
-/* function getProductById(id) {
-    return products.find(product => product.id === id);
-}
-
-export { getProductById, products }; */
-
 import { products } from "./listitems.js";
 
 let selectedProduct = null;
 
 // Function
-
-/* function clickButtonInfo(productId) {
-    selectedProduct = products.data.find(p => p.id === productId);
-
-    if (selectedProduct) {
-        console.log(`Product name: ${selectedProduct.productName}`);
-        console.log(`Product category: ${selectedProduct.category}`);
-        console.log(`Product price: ${selectedProduct.price}`);
-    }   else {
-        console.log(`Product not found`);
-        return null;
-    }
-} */
 
 function clickButtonInfo(productId) {
     selectedProduct = products.data.find(p => p.id === productId);
@@ -297,7 +278,9 @@ for (let i of products.data) {
     document.getElementById("productsContainer").appendChild(productCard);
 }
 
-function filterProduct(value) {
+// function filterProduct(value) --> x Uncaught ReferenceError: filterProduct is not defined
+
+window.filterProduct = function(value) {
     let filterButtons = document.querySelectorAll(".button-filters");
 
     filterButtons.forEach((button) => {
@@ -351,6 +334,9 @@ document.getElementById("searchButton").addEventListener("click", () => {
 
 // Buy section
 
+document.addEventListener("DOMContentLoaded", () => {
+
+});
 
 window.onload = () => {
     filterProduct("all");
