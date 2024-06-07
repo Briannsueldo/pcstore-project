@@ -6,6 +6,7 @@ if (selectedProduct) {
     console.log(`Product category: ${selectedProduct.category}`);
     console.log(`Product price: ${selectedProduct.price}`);
     console.log(`Product name complete: ${selectedProduct.completeName}`);
+    console.log(`Product description ${selectedProduct.description}`);
 } else {
     console.log(`Product not found`);
 }
@@ -22,6 +23,10 @@ if (selectedProduct) {
     const priceElement = document.querySelector('.price-container .price');
     // container for images array, and images array deploy
     const carrouselElement = document.querySelector('.image-carrousel');
+    // product detail container
+    const detailsElement = document.querySelector('.details');
+    // description container
+    const descriptionElement = document.querySelector('.information-container span');
 
     imageElement.src = selectedProduct.image;
 
@@ -55,6 +60,38 @@ if (selectedProduct) {
             });
         });
     }
+
+    // products details
+
+    if (selectedProduct.details && Array.isArray(selectedProduct.details)) {
+        
+        selectedProduct.details.forEach(detail => {
+            const detailsSpan = document.createElement('div');
+
+            const [label, value] = detail.split(':');
+
+            const labelSpan = document.createElement('span');
+
+            labelSpan.textContent = label + ':';
+            labelSpan.classList.add('product-detail-label');
+
+            const valueSpan = document.createElement('span');
+
+            valueSpan.textContent = value;
+            valueSpan.classList.add('product-detail-value');
+
+            detailsSpan.appendChild(labelSpan);
+            detailsSpan.appendChild(valueSpan);
+
+            detailsSpan.classList.add('main-detail-container');
+
+            detailsElement.appendChild(detailsSpan);
+        });
+    }
+
+    // product description
+    
+    descriptionElement.textContent = selectedProduct.description;
 }
 
 // Quantity box

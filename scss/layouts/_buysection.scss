@@ -2,10 +2,10 @@
 .buyinfo-container {
     display: flex;
     position: relative;
-    height: 80vh;
+    height: 45rem;
     width: 65rem;
     background-color: #212121;
-    box-shadow: 0px 0px 10px 0px;
+    box-shadow: 0px 0px 4px 0px;
     border-radius: 0.375rem;
 
     .image-container {
@@ -197,6 +197,7 @@
             height: 25%;
             width: 100%;
             display: flex;
+            border-radius: 0 0 0.375rem 0;
 
             .icon-information-container {
                 height: 100%;
@@ -218,6 +219,74 @@
                         font-size: 1.1rem;
                         font-weight: 400;
                     }
+                }
+            }
+        }
+    }
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: auto;
+    width: 65rem;
+    padding: 5rem;
+    box-shadow: 0px 0px 4px 0px;
+    border-radius: .375rem;
+
+    .information-container {
+        width: 100%;
+        height: auto;
+
+        span {
+            display: flex;
+            width: 100%;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+    }
+
+    .details-container {
+        width: 100%;
+        height: auto;
+
+        .details-title {
+            height: 3rem;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            padding: 3rem;
+
+            h3 {
+                color: #3d464d;
+                font-size: 1.4rem;
+            }
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            border-left: 3px solid #3483FA;
+            
+
+            .main-detail-container {
+                border-bottom: 1px solid #2121212b;
+                padding-block: 1rem;
+
+                span {
+                    position: relative;
+                    left: 1.5rem;
+                }
+
+                .product-detail-label {
+                    font-weight: 700;
+                    color: #3d464d;
+                }
+
+                .product-detail-value {
+                    font-weight: 400;
                 }
             }
         }
