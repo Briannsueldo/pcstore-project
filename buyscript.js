@@ -1,5 +1,30 @@
 
+
 const selectedProduct = JSON.parse(localStorage.getItem("selectedProduct"));
+
+function priceConverterPromo(selectedProduct, callback) {
+    fetch("https://dolarapi.com/v1/dolares/tarjeta")
+        .then(response => response.json())
+        .then(data => {
+            const dolarValue = data.venta;
+            const originalPrice = parseFloat(selectedProduct.price.replace(" USD", ""));
+            const convertedPrice = ((dolarValue * originalPrice) * 0.8).toFixed(2);
+
+            callback(convertedPrice);
+        })
+}
+
+function priceConverterOriginal(selectedProduct, callback) {
+    fetch("https://dolarapi.com/v1/dolares/tarjeta")
+        .then(response => response.json())
+        .then(data => {
+            const dolarValue = data.venta;
+            const originalPrice = parseFloat(selectedProduct.price.replace(" USD", ""));
+            const finalPrice = dolarValue * originalPrice;
+
+            callback(finalPrice);
+        })
+}
 
 if (selectedProduct) {
     console.log(`Product name: ${selectedProduct.productName}`);
@@ -17,8 +42,6 @@ if (selectedProduct) {
     const categoryElement = document.querySelector('.title-container span');
     // discount price
     const promoElement = document.querySelector('.price-container .promoPrice');
-    const originalPrice = parseFloat(selectedProduct.price.replace(" USD", ""));
-    const discountPrice = (originalPrice * 0.80).toFixed(2);
     // original price
     const priceElement = document.querySelector('.price-container .price');
     // container for images array, and images array deploy
@@ -34,9 +57,14 @@ if (selectedProduct) {
 
     categoryElement.textContent = selectedProduct.category;
 
-    priceElement.textContent = `$${selectedProduct.price}`;
 
-    promoElement.textContent = `$${discountPrice} USD`;
+    priceConverterOriginal(selectedProduct, function(convertedOriginalPrice) {
+        priceElement.textContent = `${convertedOriginalPrice} $ARS`;
+    })
+
+    priceConverterPromo(selectedProduct, function(convertedPromoPrice) {
+        promoElement.textContent = `${convertedPromoPrice} $ARS`;
+    });
 
     // confirms if images is an array and then for every image inside of array create an img
 
